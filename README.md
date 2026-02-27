@@ -1,6 +1,6 @@
-# SINC
+# SINC 💻
 
-## Este é meu primeiro sistema.
+## Este é meu primeiro sistema. 
 
 Nele coloquei em pratica tudo que aprendi em python até o momento.
 
