@@ -13,36 +13,34 @@ proximo_id = 1
 # while principal com o Menu.
 while True:
     limpartela()
-    # Apresentacao do programa com o nome.
-    print("=-"*12)
-    print("    Bem vindo ao Sinc")
-    print("=-"*12)
-    sleep(0.5)
-    # print com as informacoes do programa.
-    print('''01 - Cadastrar Produto.
+    try:    
+        # Apresentacao do programa com o nome.
+        print("=-"*12)
+        print("    Bem vindo ao Sinc")
+        print("=-"*12)
+        sleep(0.5)
+        # variavel escolha armazena a escolha do usuario.
+        escolha = int(input('''01 - Cadastrar Produto.
 02 - Listar Produtos.
 03 - Atualizar Produto.
 04 - Remover Produtos.
-05 - Sair do Programa.''')
-    print("=-"*12)
-
-    try:
-        # variavel escolha armazena a escolha do usuario.
-        escolha = int(input('O que deseja fazer? '))
+05 - Sair do Programa.
+                            
+O que deseja fazer: '''))
+        print("=-"*12)
         limpartela()
         if escolha <= 0 or escolha >= 6:
             print("digite de 1 a 5")
             sleep(1.5)
             limpartela()
             continue
-
     except ValueError:
-            limpartela()
+        limpartela()
         # tratamento de erro se o usuario digitar letras.
-            print('Digite somente numeros...')
-            sleep(3)
-            limpartela()
-            continue
+        print('Digite somente numeros...')
+        sleep(3)
+        limpartela()
+        continue
 
     # cadastro de produto.
     if escolha == 1:
@@ -100,7 +98,7 @@ while True:
         # se tiver ele mostra na tela.
         else:
             for id, dados in ESTOQUE.items():
-                print(f'{id} - "nome": {dados["nome"]} - "quantidade": {dados["quantidade"]}')
+                print(f'{id} - nome: {dados["nome"]} - quantidade: {dados["quantidade"]}')
             print('Precione ENTER para sair...')
             input()
             limpartela()
@@ -108,7 +106,7 @@ while True:
     # Atualiza o produto.
     elif escolha == 3:
         try:
-            id_produto = int(input('Digite o ID do produto: '))
+            id_produto = int(input('Digite o ID do produto que deseja atualizar: '))
             limpartela()
         
             # Se o ID nao existir
