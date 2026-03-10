@@ -1,7 +1,7 @@
 import os
 from time import sleep 
 
-from modulos.functions import cadastrar_produto, listar_produto, atualizar_produto, remover_produto
+from modulos.functions import cadastrar_produto, listar_produto, atualizar_produto, remover_produto, abrir_arquivo, salvar_arquivo
 from modulos.utils import limpartela, saudacao, print_opcoes, final_programa 
 
 
@@ -9,7 +9,8 @@ from modulos.utils import limpartela, saudacao, print_opcoes, final_programa
 ESTOQUE = {}
 # proximo_id variavel para sempre mostrar um ID nos produtos e nunca repetir.
 proximo_id = 1
-
+# Abre o arquivo se ele existir, se nao ele cria.
+abrir_arquivo()
 # while principal com o Menu.
 while True:
     limpartela()
@@ -34,7 +35,6 @@ while True:
             sleep(2.5)
             limpartela()
             continue
-
     # cadastro de produto.
     if escolha == 1:
         proximo_id = cadastrar_produto(ESTOQUE, proximo_id)
@@ -49,7 +49,8 @@ while True:
   
     # remover um produto.
     elif escolha == 4:
-        remover_produto(ESTOQUE)
+        # remover_produto(ESTOQUE)
+        salvar_arquivo(ESTOQUE)
     
     # Aqui encerra o programa
     else:

@@ -1,4 +1,11 @@
 import modulos.utils as fun
+import os
+
+
+def abrir_arquivo():
+    if not os.path.exists("ESTOQUE.txt"):
+        with open("ESTOQUE.txt", "w") as arquivo:
+            arquivo.write("")
 
 
 def cadastrar_produto(ESTOQUE, proximo_id):
@@ -115,4 +122,14 @@ def remover_produto(ESTOQUE):
             print('Produto nao encontrado....')
             print('Precione ENTER para sair...')
             input()
+
+
+def salvar_arquivo(ESTOQUE):
+    with open("ESTOQUE.txt", 'w') as arq:
+        arq.write("")
+    with open("ESTOQUE.txt", "a") as arquivo:
+        for id_produto, dados in ESTOQUE.items():
+            linha = f'ID = {id_produto} | "nome": {dados["nome"]} | "quantidade": {dados["quantidade"]} \n'
+            arquivo.write(linha)
+        
 
