@@ -1,1 +1,0 @@
-ID = 1 | "nome": Teste | "quantidade": 3 
